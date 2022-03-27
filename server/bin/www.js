@@ -1,10 +1,9 @@
 #!/usr/bin/env node
-
 /**
  * Module dependencies.
  */
-
- var app = require('../app');
+// var app = require('../app');
+import app from '../app';
  var debug = require('debug')('projnotes:server');
  var http = require('http');
  const { colors } = require('debug/src/browser');
