@@ -27,12 +27,12 @@ module.exports = {
     // 4. Modulos
     module:{
         rules:[
-            // 3.1 Regla para Babel
+            // 4.1 Regla para Babel
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: [
-                    // 3.1.1 Primer stage
+                    // 4.1.1 Primer stage
                     {
                         loader:'babel-loader',
                         options: {
