@@ -45,12 +45,13 @@ module.exports = {
             // 3.2 Reglas para Css
             {
                 test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader],
-            }
+                use: [MiniCssExtractPlugin.loader,
+                    "css-loader"],
+            },
         ]
     },
     // 4. Plugins
     plugins: [ new MiniCssExtractPlugin({
-        filename: path.join('stylesheet','styles.css')
+        filename: path.join('stylesheets','styles.css')
     })]
 };
