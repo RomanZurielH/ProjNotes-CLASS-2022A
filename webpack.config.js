@@ -33,7 +33,7 @@ module.exports = {
                                     '@babel/preset-env',{
                                         modules: false,
                                         useBuiltIns: 'usage',
-                                        targets: '> 0.25%, not dead',
+                                        chrome: "80%",
                                         corejs: 3,
                                     }
                                 ]
