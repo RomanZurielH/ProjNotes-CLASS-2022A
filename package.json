@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./dist/bin/www",
+    "start": "SET NODE_ENV=producton && node ./dist/bin/www",
     "dev": "babel-watch ./server/bin/www",
     "build:s": "npm run clean:server && babel ./server --out-dir dist --copy-files",
     "clean:server": "rimraf dist",

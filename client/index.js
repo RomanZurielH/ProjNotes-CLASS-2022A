@@ -2,7 +2,7 @@
 import './styles/style.css'
 import './styles/mystyle.css'
 
-console.log("🎁Webpack Working!!!");
+console.log("🎁front-end working!");
 
 // default parameters
 let show = (m = "😛") => {
