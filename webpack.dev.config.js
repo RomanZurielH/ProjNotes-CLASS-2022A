@@ -42,11 +42,13 @@ module.exports = {
                                 [
                                     '@babel/preset-env',{
                                         modules: false,
-                                        useBuiltIns: 'usage',
-                                        chrome: "80%",
+                                        useBuiltIns: "usage",
+                                        targets: {
+                                         "chrome":"80"
+                                        },
                                         corejs: 3,
-                                    }
-                                ]
+                                        },
+                                      ],
                             ]
                         }
                     }
