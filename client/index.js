@@ -1,13 +1,13 @@
 /* eslint-disable no-console */
 
 // incorporando estilos a mi bundle
-import './styles/style.css';
-import './styles/mystyle.css';
+import "./styles/style.css";
+import "./styles/mystyle.css";
 
-console.log('🎁front-end working!');
+console.log("🎁front-end working!");
 
 // default parameters
-const show = (m = '😛') => {
+const show = (m = "😛") => {
   console.log(m);
 };
 show();
@@ -16,13 +16,13 @@ show();
 function resolveAfer2Seconds() {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve('function resolve');
+      resolve("function resolve");
     }, 200);
   });
 }
 
 async function asyncCall() {
-  console.log('Calling async function!!!');
+  console.log("Calling async function!!!");
   const result = await resolveAfer2Seconds();
   console.log(result); // imprime "function resolve" en la consola
 }
