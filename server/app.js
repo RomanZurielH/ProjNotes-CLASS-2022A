@@ -95,7 +95,7 @@ app.use('/about', aboutRouter);
 app.use((req, res, next) => {
   // Registrando el error 404 en el log
   winston.error(
-    `404 - Not Found: ${req.method} ${req.originalUrl}: IP${req.ip}`
+    `404 - Not Found: ${req.method} ${req.originalUrl}: IP ${req.ip}`
   );
   next(createError(404));
 });
