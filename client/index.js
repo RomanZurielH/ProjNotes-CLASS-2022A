@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 
 // incorporando estilos a mi bundle
-import './styles/style.css';
 import './styles/mystyle.css';
 
 console.log('🎁front-end working!');
