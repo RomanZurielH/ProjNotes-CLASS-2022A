@@ -8,13 +8,14 @@ import app from '@s/app';
 import Debug from 'debug';
 import http from 'http';
 // Importando nuestro logger
-import winston from '../config/winston';
+import winston from '../Config/winston';
 // Creando instancia del debugger
 const debug = Debug('projnotes:server');
 /**
  * Get port from environment and store in Express.
  */
 /** process.env.PORT Forma de acceder a la variable de entorno */
+// eslint-disable-next-line no-use-before-define
 const port = normalizePort(process.env.PORT || '3000');
 // app es una instancia de ExpressJs[ ] [ NODE ]
 app.set('port', port);
