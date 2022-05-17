@@ -25,7 +25,17 @@ const index = (req, res) => {
   res.render('index', viewModel);
 };
 
+// URL: Get /about
+const about = (req, res) => {
+  res.render('home/aboutView', {
+    name: 'Zuriel Roman',
+    email: 'nosystemupload@gmail.com',
+    url: 'https:',
+  });
+};
+
 export default {
   // Action Method
   index,
+  about,
 };
