@@ -31,6 +31,9 @@ const about = (req, res) => {
     name: 'Zuriel Roman',
     email: 'nosystemupload@gmail.com',
     url: 'https:',
+    description:
+      'Aplicación que te permite registrar ideas de proyectos. PwpcII - 2022A',
+    version: '0.0.alpha',
   });
 };
 
