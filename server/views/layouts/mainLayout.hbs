@@ -2,21 +2,22 @@
 <html>
   <head>
     <title>{{title}}</title>
-    <!--Favicon -->
-    <link rel="shortcut icon" href="images/favicon.ico" type="images/x-icon">
-    <!-- Cargando materialize -->
-      <link rel="stylesheet" href="/vendor/materializecss/css/materialize.min.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/kiwi.ico" type="image/x-icon">
+    <!-- Cargando Materializecss --->
+    <link rel='stylesheet' href='/vendor/materializecss/css/materialize.min.css' />
+    <!-- Cargando Materializecss --->
     <link rel='stylesheet' href='/stylesheets/styles.css' />
   </head>
   <body>
     {{!-- Lllamando a la vista parcial de la navbar --}}
     {{> _navbar}}
-    
     <div class="container">
-     {{{body}}}
+      {{{body}}}
     </div>
-    
+   <!-- Materialize script -->
     <script src="/vendor/materializecss/js/materialize.min.js"></script>
-    <script src="./javascripts/bundle.js"></script>
+    <!-- Bundle de la App -->
+    <script src="/javascripts/bundle.js"></script>
   </body>
 </html>
