@@ -31,6 +31,11 @@ import winston from './Config/winston';
 // Configuración
 import webpackConfig from '../webpack.dev.config';
 
+// Importando las variables de configuracion
+import configKeys from './Config/configKeys';
+// Importando clase conductora a la bd
+import MongooseODM from './Config/odm';
+
 // Aqui se crea la instancia de express
 // (req, res, next, err) => {... }
 const app = express();
@@ -43,6 +48,22 @@ if (nodeEnv === 'development') {
   // Embebiendo webpack a mi aplicación
   console.log(`✍ Ejecutando en modo desarrollo 🤱👶`);
 
+  // Conexion a la bd
+  // Creando una instancia a la conexipon de tu DB
+  const mongooseODM = new MongooseODM(configKeys.databaseUrl);
+  // Crear un IIFE para crear un ambito asincrono
+  // que permita usar async await
+  (async () => {
+    // Ejecutamos el metodo de conexion
+    const connectionResult = await mongooseODM.connect();
+    // Checamos si hay errores
+    if (connectionResult) {
+      // Si conectó correctamente a la bd
+      winston.info('✔Conexión a la bd exitosa ✌');
+    } else {
+      winston.error('😱No se conectó a la bd');
+    }
+  })();
   // Establiendo el modo de webpack en desarrollo
   // en el configurador
   webpackConfig.mode = 'development';
