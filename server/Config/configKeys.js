@@ -9,7 +9,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // Crear un objeto que contendra
-// los datos de configuracion que extratera
+// los datos de configuracion que extraera
 // de las variables de entorno
 export default {
   homeUrl: `${process.env.APP_URL} :${process.env.PORT}`,

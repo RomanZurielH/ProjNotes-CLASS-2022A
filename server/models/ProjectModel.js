@@ -2,7 +2,7 @@
 import mongoose from 'mongoose';
 
 // 2-Desestructura el modulo
-// de schemas de mMongoose
+// de schemas de Mongoose
 const { Schema } = mongoose;
 
 // 3-Creamos el Schema
