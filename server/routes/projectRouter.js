@@ -12,8 +12,8 @@ const router = new Router();
 // GET: /projects | GET: /projects/index
 router.get(['/', '/index'], projectController.index);
 
-// Registar una idea de proyecto
-// GET /projects/add
+// Envia el formulario para registar una idea de proyecto
+// get /projects/add
 router.get('/add', projectController.add);
 
 // EXportadno el enrutador
