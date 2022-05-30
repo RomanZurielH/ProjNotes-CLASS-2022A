@@ -1,20 +1,18 @@
-// Actions Methods
-
-// Lista de proyectos
-// GET /projects| GET /projects/index
+//* Actions Methods */
+// Lista los proyectos
+// GET /projects | GET /projects/index
 const index = (req, res) => {
-  res.send('Lista de proyectos 🚧');
-  // TODO: Agregar código de listas de proyectos
+  res.send('Listando proyectos 🚧');
+  // TODO: Agregar codigo de listado de proyectos
 };
-
 // Agrega ideas de proyectos
 // GET /projects/add
 const add = (req, res) => {
   res.render('projects/addProjectView', {});
-  // TODO: Agregar las ideas de proyectos
+  // TODO: Agregar codigo para agregar proyectos
 };
 
-// Procesa el formulario que agrega ideas de proyectos
+// Procesa el formulario que Agrega ideas de proyectos
 // POST /projects/add
 const addPost = (req, res) => {
   // Desestructurando la informacion

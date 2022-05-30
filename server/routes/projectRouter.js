@@ -1,25 +1,21 @@
-// importar el Router de Express
+// Importando el Router de Express
 import { Router } from 'express';
-
-// Importando el enrutador del proyectp
+// Importar el controlador de proyectos
 import projectController from '../controllers/projectController';
-
-// Creando instancia del Router
+// Crear la instancia del Router
 const router = new Router();
-
-/* ------ GET -------- */
-// Lista de proyectos
-// GET: /projects | GET: /projects/index
+/* ------ GET ------ */
+// Listar proyector
+// GET /projects | GET /projects/index
 router.get(['/', '/index'], projectController.index);
-
-// Envia el formulario para registar una idea de proyecto
+// Envia el formulario para registrar una idea de proyecto
 // get /projects/add
 router.get('/add', projectController.add);
 
 /* ------ POST ------ */
-// Procesa el formulario que agrega ideas de proyectos
+// Procesa el formulario que Agrega ideas de proyectos
 // POST /projects/add
 router.post('/add', projectController.addPost);
 
-// EXportadno el enrutador
+// Exportando el enrutador Projects
 export default router;
