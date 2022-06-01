@@ -9,9 +9,9 @@ const projectSchema = Yup.object().shape({
     .required('Se requiere una descripción para el proyecto'),
 });
 
-// 3 Creamos el middleware de validacion
+// 3 Creamos el middleware de validación
 const getProject = (req) => {
-  // Extraemos la info del formualrio
+  // Extraemos la info del formulario
   const { name, description } = req.body;
   // Armar un objeto con los datos del proyecto
   return {
@@ -20,4 +20,4 @@ const getProject = (req) => {
   };
 };
 
-export { projectSchema, getProject };
+export default { projectSchema, getProject };
