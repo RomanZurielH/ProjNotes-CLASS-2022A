@@ -1,46 +1,69 @@
 <div class="row">
-    <div class="col s12 m10 offset-m1 l8 offset-l2">
-        <div class="card">
+  <div class="col s12 m10 offset-m1 l8 offset-l2">
+    <div class="card">
+      <div class="card-image">
         <img src="/images/blue-print.png" alt="blue print image" />
-    <span class="card-title">
-        Registrar proyecto
-    </span>
-        </div>
-        <form autocomplete="off" action="/projects/add" method="POST">
+        <span class="card-title">
+          Registrar Proyecto
+        </span>
+      </div>
+      <form autocomplete="off" action="/projects/add" method="POST">
         <div class="card-content">
-        <div class="input-field">
-        <label for="project-name">
-           Nombre del proyecto
-        </label>
-        <input
-        placeholder="Ingresa el nombre del proyecto"
-        type="text"
-         id="project-name"
-         name="name"
-         class="validate"
+          <div class="input-field">
+            <label for="project-name">
+              Nombre
+            </label>
+            <input
+              placeholder="Ingrese el nombre del proyecto"
+              type="text"
+              id="project-name"
+              name="name"
+              class="validate"
+              value="{{project.name}}"
+              required
             />
-         </div>
-         <div class="input-field">
-         <label for="project-description">
-           Descripción del proyecto
-         </label>
-         <textarea
-         name="description"
-          id="project-description"
-          class="materialize-textarea">
-          </textarea>
-         </div>
+            <span 
+            class="helper-text" 
+            data-error="Debe ingresar nombre al proyecto"
+            data-success="Correcto"></span>
+            {{#if errorModel.nameError}}
+            <span style="color:red">Error: {{errorModel.nameError}}</span>
+            {{/if}}
+          </div>
+          <div class="input-field">
+            <label for="project-description">
+              Descripción
+            </label>
+            <textarea
+              name="description"
+              id="project-description"
+              class="materialize-textarea"
+              required
+            ></textarea>
+            {{project.description}}
+            <span
+            class="helper-text"
+            data-error="Debe ingresar descripcion al proyecto"
+            data-success="Correcto"></span>
+            {{#if errorModel.descriptionError}}
+            <span style="color:red"> 
+              Error: {{errorModel.descriptionError}}
+            </span>
+            {{/if}}
+          </div>
         </div>
         <div class="card-action">
-            <button type="submit" class="blue darken-3 waves-effect
-            waves-light btn">
+          <button
+            type="submit"
+            class="blue darken-3 waves-effect waves-light btn"
+          >
             <i class="material-icons left">
-                save
-                </i>
-                Registrar
-            </button>
+              save
+            </i>
+            Registrar
+          </button>
         </div>
-        </form>
-        </div>
+      </form>
     </div>
+  </div>
 </div>

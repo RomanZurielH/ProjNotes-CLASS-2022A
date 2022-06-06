@@ -64,6 +64,7 @@ if (nodeEnv === 'development') {
       winston.error('😱No se conectó a la bd');
     }
   })();
+
   // Estableciendo el modo de webpack en desarrollo
   // en el configurador
   webpackConfig.mode = 'development';
