@@ -1,11 +1,23 @@
 import log from '../Config/winston';
+// importamos el modelo Project
+import ProjectModel from '../models/ProjectModel';
 
 //* Actions Methods */
-// Lista los proyectos
+// Lista de proyectos
 // GET /projects | GET /projects/index
-const index = (req, res) => {
-  res.send('Lista de proyectos 🚧');
-  // TODO: Agregar codigo de lista de proyectos
+const index = async (req, res) => {
+  // 1 Pedirle a la base de datos
+  // que me de todos los proyectos que tiene
+  // db.projects.find*()
+  try {
+    log.info('Mostrando lista de proyectos 🕰');
+    const projectsDocs = await ProjectModel.find();
+    log.info('Mostrando lista de proyectos con éxito 🎊');
+    res.json(projectsDocs);
+  } catch (error) {
+    log.error(`💥 Error al listar proyectos: ${error.message}`);
+    res.status(500).json(error);
+  }
 };
 
 // Agrega ideas de proyectos
@@ -17,13 +29,16 @@ const add = (req, res) => {
 
 // Procesa el formulario que Agrega ideas de proyectos
 // POST /projects/add
-const addPost = (req, res) => {
-  const { errorData } = req;
+const addPost = async (req, res) => {
+  // Desestructurando la informacion
+  // del formulario o de un posible error
+  const { errorData, validData } = req;
   // crear view models para este action method
   let project = {};
   let errorModel = {};
+  // Verifico si hay erro de validacion
   if (errorData) {
-    log.info('Se retorna objeto de error de validación');
+    log.error('💥 Se retorna objeto de error de validacion 💥');
     // Rescatando el objeto validado
     project = errorData.value;
     // Usamos reduce para generar un objeto
@@ -37,21 +52,28 @@ const addPost = (req, res) => {
       newVal[`${curr.path}Error`] = curr.message;
       return newVal;
     }, {});
-    // La validacion fallo
-    // res.status(200).json(errorData);
-  } else {
-    log.info('Se retorna objecto de proyecto vállido');
-    // Desestructurando la informacion
-    // del formulario del objeto validado
-    const { validData } = req;
-    // Regresar un objeto con los datos
-    // obtenidos del formulario
-    // res.status(200).json(project);
-    project = validData;
+    // La validación falló
+    return res.render('projects/addProjectView', { project, errorModel });
   }
-  // Respondemos con los viewModels generados
-  res.render('projects/addProjectView', { project, errorModel });
-  // res.status(200).json({ project, errorModel });
+  log.info('Se retorna un objeto Proyecto válido');
+  // Crear un documento con los datos provistos
+  // por el formulario y guardar dicho documento
+  // en projectModel
+  const projectModel = new ProjectModel(validData);
+  // Siempre que se ejecuta una operacion
+  // que depende de un tercero, es una buena practica
+  // envolver esa operacion en un bloque try
+  try {
+    log.info('Salvando el Proyecto...⏳');
+    project = await projectModel.save();
+    log.info('🎉 Proyecto salvado con éxito 🎉');
+    // Redireccionando al recurso que hace la lista de proyectos
+    // GET / projects
+    return res.redirect(`/projects`);
+  } catch (error) {
+    log.error(`Ha fallado el intento de salvar un proyecto:${error.message}`);
+    return res.status(500).json({ error });
+  }
 };
 
 // Exportando el controlador
